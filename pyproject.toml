@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "chat-bot-test"
+version = "0.1.0"
+description = "chat bot de prueba para With"
+authors = ["Nicola Gernone <nicola.gernone02@gmail.com>"]
+
+
+[tool.poetry.dependencies]
+python = "^3.12"
+python-telegram-bot = "^21.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+package-mode = false
