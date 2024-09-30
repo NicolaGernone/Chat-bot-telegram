@@ -8,6 +8,8 @@ authors = ["Nicola Gernone <nicola.gernone02@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.12"
 python-telegram-bot = "^21.6"
+python-decouple = "^3.8"
+black = "^24.8.0"
 
 
 [build-system]
