@@ -4,7 +4,7 @@ services:
   bot:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker/Dockerfile
     container_name: rocket_launch_bot
     env_file:
       - dev.env
