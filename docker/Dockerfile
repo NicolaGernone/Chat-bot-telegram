@@ -1,26 +1,20 @@
 FROM python:3.12-alpine
 
 ARG POETRY_HOME=/opt/poetry
-
-ENV PATH="${PATH}:${POETRY_HOME}/bin"                                                               \
-    PYTHONUNBUFFERED=1                                                                              \
-    POETRY_VIRTUALENVS_CREATE=false                                                                 \
+ENV PATH="${PATH}:${POETRY_HOME}/bin" \
+    PYTHONUNBUFFERED=1 \
+    POETRY_VIRTUALENVS_CREATE=false \
     APP_DIR=/opt/rocket_bot
 
 WORKDIR ${APP_DIR}
 
-COPY poetry.lock                    ${APP_DIR}/poetry.lock
-COPY pyproject.toml                 ${APP_DIR}/pyproject.toml
-COPY bot/                          ${APP_DIR}/bot/
+COPY poetry.lock pyproject.toml ${APP_DIR}/
 
-RUN apk add --update --no-cache                                                                     \
-    curl                                                                                            \
-    build-base                                                                                      \
-    libffi-dev                                                                                      
+RUN apk add --no-cache curl && \
+    curl -sSL https://install.python-poetry.org | POETRY_HOME=${POETRY_HOME} python3 - && \
+    poetry install --no-interaction --no-root
 
-RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=${POETRY_HOME} python3 -           && \
-    poetry config virtualenvs.create false                                                       && \
-    poetry install --no-interaction
+COPY bot/ ${APP_DIR}/bot/
 
 EXPOSE 5050
 
