@@ -9,7 +9,6 @@ services:
     env_file:
       - dev.env
     volumes:
-      - .:/app
-    command: poetry run python rocket_launch_bot.py
-    restart: always
+      - .:/bot
+    command: poetry run python bot/rocket_launch_bot.py
 
