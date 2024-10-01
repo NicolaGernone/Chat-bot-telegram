@@ -7,7 +7,7 @@ services:
       dockerfile: docker/Dockerfile
     container_name: rocket_launch_bot
     env_file:
-      - dev.env
+      - .env
     volumes:
       - .:/bot
     command: poetry run python bot/rocket_launch_bot.py

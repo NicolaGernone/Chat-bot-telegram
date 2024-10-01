@@ -5,7 +5,7 @@ ARG POETRY_HOME=/opt/poetry
 ENV PATH="${PATH}:${POETRY_HOME}/bin"                                                               \
     PYTHONUNBUFFERED=1                                                                              \
     POETRY_VIRTUALENVS_CREATE=false                                                                 \
-    APP_DIR=/opt/bot
+    APP_DIR=/opt/rocket_bot
 
 WORKDIR ${APP_DIR}
 
