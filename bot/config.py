@@ -13,7 +13,20 @@ LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 
 logging.basicConfig(filename=LOG_FILE, level=LOG_LEVEL, format=LOG_FORMAT)
 
+# Archivo de logs
+file_handler = logging.FileHandler(LOG_FILE)
+file_handler.setLevel(LOG_LEVEL)
+file_handler.setFormatter(logging.Formatter(LOG_FORMAT))
+
+# Consola
+console_handler = logging.StreamHandler()
+console_handler.setLevel(LOG_LEVEL)
+console_handler.setFormatter(logging.Formatter(LOG_FORMAT))
+
+# Configurar logger
 logger = logging.getLogger(__name__)
+logger.addHandler(file_handler)
+logger.addHandler(console_handler)
 
 FRAMEX_API_URL = config("FRAMEX_API_URL")
 TELEGRAM_BOT_TOKEN = config("TELEGRAM_BOT_TOKEN")
