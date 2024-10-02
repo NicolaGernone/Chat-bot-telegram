@@ -85,7 +85,9 @@ async def button(update: Update, context: CallbackContext) -> None:
             lg.info(f"Final frame determined: {frame_bisection.current_frame}")
 
             frame_bisection.reset()
-            await query.message.reply_text("The search has been reset. You can /start a new one.")
+            await query.message.reply_text(
+                "The search has been reset. You can /start a new one."
+            )
         else:
             await _send_frame_image(query, frame_bisection.current_frame)
     except Exception as e:

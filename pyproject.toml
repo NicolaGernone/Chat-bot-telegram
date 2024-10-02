@@ -3,6 +3,7 @@ name = "chat-bot-test"
 version = "0.1.0"
 description = "chat bot de prueba para With"
 authors = ["Nicola Gernone <nicola.gernone02@gmail.com>"]
+package-mode = false
 
 
 [tool.poetry.dependencies]
@@ -12,7 +13,8 @@ python-decouple = "^3.8"
 black = "^24.8.0"
 requests = "^2.32.3"
 urllib3 = "^2.2.3"
-isort = "^5.13.2"
+pytest = "^8.3.3"
+flake8 = "^7.1.1"
 
 
 [build-system]

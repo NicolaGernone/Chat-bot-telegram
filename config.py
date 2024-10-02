@@ -1,8 +1,10 @@
 import logging
 import os
+import sys
 from datetime import datetime
-
 from decouple import config
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 log_dir = "logs"
 os.makedirs(log_dir, exist_ok=True)
