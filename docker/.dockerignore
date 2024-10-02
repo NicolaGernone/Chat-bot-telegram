@@ -1,0 +1,19 @@
+# Ignorar el entorno virtual
+.venv
+
+# Ignorar archivos de control de versiones
+.git
+.gitignore
+
+# Ignorar archivos de logs y temporales
+*.log
+*.tmp
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar archivos de configuración locales y entornos de desarrollo
+.env
+.vscode/
+.idea/

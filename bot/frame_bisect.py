@@ -20,6 +20,13 @@ class FrameBisection:
         Property that returns the current frame.
         """
         return self._current_frame
+    
+    @current_frame.setter
+    def current_frame(self, value: int) -> None:
+        """
+        Setter for the current frame.
+        """
+        self._current_frame = value
 
     def update_bounds(self, response: str) -> None:
         """

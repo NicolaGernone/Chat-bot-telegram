@@ -7,7 +7,7 @@ from telegram.ext import (
     CommandHandler,
     Application,
 )
-from frame_bisect import FrameBisection
+from bot.frame_bisect import FrameBisection
 
 
 frame_bisection = FrameBisection()
