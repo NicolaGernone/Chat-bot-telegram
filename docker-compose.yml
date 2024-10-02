@@ -3,13 +3,11 @@ version: '3.8'
 services:
   bot:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: .  
+      dockerfile: docker/Dockerfile
     container_name: rocket_launch_bot
     env_file:
-      - dev.env
+      - .env
     volumes:
-      - .:/app
-    command: poetry run python rocket_launch_bot.py
-    restart: always
-
+      - .:/opt/rocket_bot
+    command: python bot/rocket_launch_bot.py

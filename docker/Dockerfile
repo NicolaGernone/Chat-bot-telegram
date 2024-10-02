@@ -1,20 +1,23 @@
-FROM python:3.11-alpine
+FROM python:3.12-alpine
 
-ENV POETRY_VERSION=1.7.0
-RUN curl -sSL https://install.python-poetry.org | python3 - \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+ARG POETRY_HOME=/opt/poetry
+ENV PATH="${PATH}:${POETRY_HOME}/bin" \
+    PYTHONUNBUFFERED=1 \
+    POETRY_VIRTUALENVS_CREATE=false \
+    APP_DIR=/opt/rocket_bot
 
-ENV PATH="/root/.local/bin:$PATH"
+ENV PYTHONPATH="${PYTHONPATH}:/opt/rocket_bot"
 
-WORKDIR /app
+WORKDIR ${APP_DIR}
 
-COPY pyproject.toml poetry.lock /app/
+COPY poetry.lock pyproject.toml ${APP_DIR}/
 
-RUN poetry install --no-root
+RUN apk add --no-cache curl && \
+    curl -sSL https://install.python-poetry.org | POETRY_HOME=${POETRY_HOME} python3 - && \
+    poetry install --no-interaction --no-root
 
-COPY . /app/
+    COPY . ${APP_DIR}/
 
-EXPOSE 8000
+EXPOSE 5050
 
-CMD ["poetry", "run", "python", "rocket_launch_bot.py"]
+CMD ["poetry", "run", "python", "bot/rocket_launch_bot.py"]
