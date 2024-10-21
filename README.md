@@ -20,7 +20,7 @@ This repository contains the source code for **Rocket Launch Detection Bot**, a 
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/rocket-launch-bot.git
+   git clone https://github.com/NicolaGernone/Chat-bot-telegram.git
    cd rocket-launch-bot
    ```
 
@@ -32,19 +32,20 @@ This repository contains the source code for **Rocket Launch Detection Bot**, a 
 
 3. **Install the required dependencies**:
    ```bash
-   pip install -r requirements.txt
+   make install
    ```
 
 4. **Set up environment variables**:
    You'll need to provide your own Telegram bot token and FRAMEX API URL by creating a `.env` file in the root directory:
    ```
    TELEGRAM_BOT_TOKEN=your-telegram-bot-token
-   FRAMEX_API_URL=https://your-framex-api-url
+   FRAMEX_API_URL=https://framex-develop-amzw3.ondigitalocean.app/api/video/Falcon%20Heavy%20Test%20Flight%20(Hosted%20Webcast)-wbSwFU6tY1c/frame
+   
    ```
 
 5. **Run the bot**:
    ```bash
-   python3 bot/rocket_launch_bot.py
+   make up
    ```
 
 ## Usage
