@@ -75,7 +75,7 @@ This repository contains the source code for **Rocket Launch Detection Bot**, a 
 
 ### How to Run Tests
 ```bash
-pytest tests/
+   make tests
 ```
 
 ## Code Structure & Maintainability
